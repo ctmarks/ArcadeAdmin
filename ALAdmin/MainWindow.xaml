@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ALAdmin"
         mc:Ignorable="d"
         Title="ALAdmin"
-        Height="1920"
-        Width="1090"
+        Height="1080"
+        Width="1920"
         WindowState="Maximized"
         FontSize="22">
   
