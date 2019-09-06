@@ -1,0 +1,15 @@
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\bin\Debug\ALAdmin.exe.config
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\bin\Debug\ALAdmin.exe
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\bin\Debug\ALAdmin.pdb
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin.csprojAssemblyReference.cache
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\MainWindow.g.cs
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\App.g.cs
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin_MarkupCompile.cache
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin_MarkupCompile.lref
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\MainWindow.baml
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin.g.resources
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin.Properties.Resources.resources
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin.csproj.GenerateResource.cache
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin.csproj.CoreCompileInputs.cache
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin.exe
+C:\Users\cmarks\source\repos\ALAdmin\ALAdmin\obj\Debug\ALAdmin.pdb
