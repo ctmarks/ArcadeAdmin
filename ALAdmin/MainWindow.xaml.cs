@@ -67,15 +67,27 @@ namespace ALAdmin
                 Game g = new Game
                 {
                     Name = NameTextBox.Text,
+                    TeamName = TeamNameTextBox.Text,
+                    StudioName = StudioNameTextBox.Text,
                     ExePath = exeTextBlock.Text,
                     VideoPath = VideoTextBlock.Text,
-                    //LogoPath = LogoTextBlock.Text
-                    Blurb = BlurbTextBlock.Text
+                    //LogoPath = LogoTextBlock.Text,
+                    Blurb = BlurbTextBlock.Text,
+                    Engine = EngineComboBox.Text,
+                    Genre = GenreComboBox.Text,
+                    Setting = SettingComboBox.Text,
+                    Rendering = RenderingComboBox.Text,
+                    Competition = CompetitionComboBox.Text,
+                    Physics = PhysicsComboBox.Text,
+                    Sound = SoundComboBox.Text,
+                    Input = InputComboBox.Text
                 };
 
                 GameList.Add(g);
 
                 NameTextBox.Clear();
+                TeamNameTextBox.Clear();
+                StudioNameTextBox.Clear();
                 exeTextBlock.Text = string.Empty;
                 VideoTextBlock.Text = string.Empty;
                 //LogoTextBlock.Text = string.Empty;
@@ -98,10 +110,19 @@ namespace ALAdmin
             foreach(Game g in GameList)
             {
                 streamWriter.WriteLine(g.Name);
+                streamWriter.WriteLine(g.TeamName);
+                streamWriter.WriteLine(g.StudioName);
                 streamWriter.WriteLine(g.ExePath);
                 streamWriter.WriteLine(g.VideoPath);
                 //streamWriter.WriteLine(g.LogoPath);
                 streamWriter.WriteLine(g.Blurb);
+                streamWriter.WriteLine(g.Genre);
+                streamWriter.WriteLine(g.Setting);
+                streamWriter.WriteLine(g.Rendering);
+                streamWriter.WriteLine(g.Competition);
+                streamWriter.WriteLine(g.Physics);
+                streamWriter.WriteLine(g.Sound);
+                streamWriter.WriteLine(g.Input);
             }
             streamWriter.Close();
         }
@@ -116,10 +137,19 @@ namespace ALAdmin
             {
                 Game g = new Game();
                 g.Name = streamReader.ReadLine();
+                g.TeamName = streamReader.ReadLine();
+                g.StudioName = streamReader.ReadLine();
                 g.ExePath = streamReader.ReadLine();
                 g.VideoPath = streamReader.ReadLine();
                 //g.LogoPath = streamReader.ReadLine();
                 g.Blurb = streamReader.ReadLine();
+                g.Genre = streamReader.ReadLine();
+                g.Setting = streamReader.ReadLine();
+                g.Rendering = streamReader.ReadLine();
+                g.Competition = streamReader.ReadLine();
+                g.Physics = streamReader.ReadLine();
+                g.Sound = streamReader.ReadLine();
+                g.Input = streamReader.ReadLine();
 
                 GameList.Add(g);
             }

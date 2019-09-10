@@ -10,127 +10,380 @@
         Width="1920"
         WindowState="Maximized"
         FontSize="22">
-  
-  <Grid Background="gray">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="20" />
-      <RowDefinition Height="Auto"/>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="20" />
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="20" />
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="20" />
-    </Grid.ColumnDefinitions>
 
     
-    <TextBlock Grid.Row="1"
-               Grid.Column="1"
-               Grid.ColumnSpan="1"
-               Text="Game List"
-               FontSize="30"
-               FontWeight="Bold"
-               Margin="0, 0, 0, 10" 
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"/>
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
 
-    <ListBox x:Name="GamesListBox"
-             Grid.Row="3"
-             Grid.Column="1"
-             Grid.RowSpan="7"
-             Grid.ColumnSpan="1"
-             Margin="0, 0, 10, 0"
-             MinWidth="250"
-             MinHeight="500">
-    
-      <ListBox.ItemTemplate>
-        <DataTemplate>
-          <TextBlock Text="{Binding Name}"/>
-        </DataTemplate>
-      </ListBox.ItemTemplate>
-    </ListBox>
+        <Border Background="DarkGray"
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                Grid.RowSpan="7"
+                Width="300">
+            <StackPanel >
+                <Border Background="Gray" 
+                        Margin="10">
+                    <TextBlock                
+                    Text="Game List"
+                    FontSize="30"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="10"/>
+                </Border>
 
-    <Label Grid.Row="3"
-           Grid.Column="6"
-           Content="Name"
-           VerticalAlignment="Center"
-           HorizontalAlignment="Left"/>
+                <Border Background="Gray"
+                        Margin="10">
+                    <ListBox x:Name="GamesListBox" 
+                    Height="810"
+                    Margin="10">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
 
-    <TextBox x:Name="NameTextBox"
-             Grid.Row="3"
-             Grid.Column="7"
-             VerticalAlignment="Center"
-             HorizontalAlignment="Left"
-             MinWidth="500" />
+                <Border Background="Gray"
+                        Margin="10">
+                    <Button 
+                    Content="Remove Game"
+                    Click="RemoveGame_Button_Click"
+                    MaxWidth="200"
+                    Margin="10" />
+                </Border>
+            </StackPanel>
+        </Border>
 
+        <Border Grid.Row="2"
+                Grid.Column="2">
+            <StackPanel Width="550"
+                        Background="DarkGray">
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label x:Name="Name"
+                        Content="Name"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"/>
+                    <TextBox x:Name="NameTextBox"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right" 
+                        MinWidth="325"
+                        Margin="10"/>
+                    
+                </DockPanel>
 
-    <Label Grid.Row="4"
-           Grid.Column="6"
-           Content=".exe Filepath"
-           VerticalAlignment="Center"
-           HorizontalAlignment="Left"/>
-    
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label x:Name="TeamName"
+                        Content="Team Name"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"/>
+                    <TextBox x:Name="TeamNameTextBox"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right" 
+                        MinWidth="325"
+                        Margin="10"/>
+                </DockPanel>
 
-    
-    <StackPanel  Grid.Row="4"
-                 Grid.Column="7"
-                 Margin="0, 10, 0, 0">
-      <TextBlock x:Name="exeTextBlock"
-                 Background="Wheat"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Left"
-                 MinWidth="500" />
-      <Button x:Name="exeBrowseButton" 
-              Height="30"
-              Content="Browse"
-              VerticalAlignment="Center"
-              HorizontalAlignment="Left"
-              Width="500"
-              Click="exeFileBrowse_Button_Click" />
-    </StackPanel>
-    
-    <Label Grid.Row="5"
-           Grid.Column="6"
-           Content="Video Filepath"
-           VerticalAlignment="Center"
-           HorizontalAlignment="Left"/>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label x:Name="StudioName"
+                        Content="Studio Name"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"/>
+                    <TextBox x:Name="StudioNameTextBox"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right" 
+                        MinWidth="325"
+                        Margin="10"/>
+                </DockPanel>
+                
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content=".exe Filepath"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"/>
+                    <StackPanel>
+                        <TextBlock x:Name="exeTextBlock"
+                            Background="Wheat"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            MinWidth="325" 
+                            Margin="10,10,10,5" 
+                            TextTrimming="CharacterEllipsis" 
+                            MaxWidth="325"/>
+                        <Button x:Name="exeBrowseButton" 
+                            Height="30"
+                            Content="Browse"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Width="326"
+                            Click="exeFileBrowse_Button_Click" 
+                            Margin="10,5,10,10"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Video Filepath"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"/>
+                    <StackPanel>
+                        <TextBlock x:Name="VideoTextBlock"
+                            Background="Wheat"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            MinWidth="325" 
+                            Margin="10,10,10,5" MaxWidth="325" 
+                            TextTrimming="CharacterEllipsis"/>
+                        <Button x:Name="VideoBrowseButton"
+                            Height="30"
+                            Content="Browse"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Width="326"
+                            Click="VideoBrowseFile_Button_Click"
+                            Margin="10,5,10,10"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Short Blurb"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"/>
+                    <TextBox x:Name="BlurbTextBlock"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right" 
+                        MinWidth="325"
+                        MinHeight="300"
+                        Margin="10" 
+                        TextWrapping="WrapWithOverflow" 
+                        MaxWidth="325" 
+                        MaxHeight="300" 
+                        AcceptsReturn="True"/>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Engine"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="EngineComboBox"
+                              Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10" IsEditable="True">
+                        <ComboBoxItem IsSelected="True">Gateware</ComboBoxItem>
+                        <ComboBoxItem>Custom</ComboBoxItem>
+                        <ComboBoxItem>Unity</ComboBoxItem>
+                        <ComboBoxItem>Unreal</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Genre"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="GenreComboBox"
+                              Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10" IsEditable="True">
+                        <ComboBoxItem IsSelected="True">Fighter</ComboBoxItem>
+                        <ComboBoxItem>Runner</ComboBoxItem>
+                        <ComboBoxItem>Platformer</ComboBoxItem>
+                        <ComboBoxItem>Action</ComboBoxItem>
+                        <ComboBoxItem>Adventure</ComboBoxItem>
+                        <ComboBoxItem>Shooter</ComboBoxItem>
+                        <ComboBoxItem>Strategy</ComboBoxItem>
+                        <ComboBoxItem>Arcade Shooter</ComboBoxItem>
+                        <ComboBoxItem>Racer</ComboBoxItem>
+                        <ComboBoxItem>Brawler</ComboBoxItem>
+                        <ComboBoxItem>Puzzle</ComboBoxItem>
+                        <ComboBoxItem>Party</ComboBoxItem>
+                        <ComboBoxItem>Role Playing Game</ComboBoxItem>
+                        <ComboBoxItem>Rhythm</ComboBoxItem>
+                        <ComboBoxItem>Simulation</ComboBoxItem>
+                        <ComboBoxItem>Stealth</ComboBoxItem>
+                        <ComboBoxItem>Vehicle Combat</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10,10,10,15">
+                    <Label Content="Setting"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="SettingComboBox"
+                                Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10" IsEditable="True">
+                        <ComboBoxItem IsSelected="True">Comic</ComboBoxItem>
+                        <ComboBoxItem>Fantasy</ComboBoxItem>
+                        <ComboBoxItem>Historic</ComboBoxItem>
+                        <ComboBoxItem>Horror</ComboBoxItem>
+                        <ComboBoxItem>Medieval</ComboBoxItem>
+                        <ComboBoxItem>Pre-Historic</ComboBoxItem>
+                        <ComboBoxItem>Sci-fi</ComboBoxItem>
+                        <ComboBoxItem>Steam Punk</ComboBoxItem>
+                        <ComboBoxItem>Sports</ComboBoxItem>
+                        <ComboBoxItem>Underwater</ComboBoxItem>
+                        <ComboBoxItem>Western</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+               
+                
 
-    <StackPanel  Grid.Row="5"
-                 Grid.Column="7"
-                 Margin="0, 10, 0, 0">
-      <TextBlock x:Name="VideoTextBlock"
-                 Background="Wheat"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="left"
-                 MinWidth="500" />
-      <Button x:Name="VideoBrowseButton"
-              Height="30"
-              Content="Browse"
-              VerticalAlignment="Center"
-              HorizontalAlignment="Left"
-              Width="500"
-              Click="VideoBrowseFile_Button_Click" />
-    </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2"
+                Grid.Column="3">
+            <StackPanel Width="550"
+                        Background="DarkGray">
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Rendering"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="RenderingComboBox"
+                        Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10">
+                        <ComboBoxItem IsSelected="True">DirectX</ComboBoxItem>
+                        <ComboBoxItem>Historic</ComboBoxItem>
+                        <ComboBoxItem>Game Studio</ComboBoxItem>
+                        <ComboBoxItem>Nebula Device 2</ComboBoxItem>
+                        <ComboBoxItem>Ogre</ComboBoxItem>
+                        <ComboBoxItem>OpenGL</ComboBoxItem>
+                        <ComboBoxItem>Gateware</ComboBoxItem>
+                        <ComboBoxItem>POPCAP</ComboBoxItem>
+                        <ComboBoxItem>Renderware</ComboBoxItem>
+                        <ComboBoxItem>SDL</ComboBoxItem>
+                        <ComboBoxItem>Torque</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Competition"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="CompetitionComboBox" 
+                        Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10">
+                        <ComboBoxItem IsSelected="True">AI</ComboBoxItem>
+                        <ComboBoxItem>Multiplayer</ComboBoxItem>
+                        <ComboBoxItem>Networking</ComboBoxItem>
+                        <ComboBoxItem>Puzzle</ComboBoxItem>
+                        <ComboBoxItem>Time</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Physics"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="PhysicsComboBox" 
+                        Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10">
+                        <ComboBoxItem>AuranJet</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">Custom</ComboBoxItem>
+                        <ComboBoxItem>Havok</ComboBoxItem>
+                        <ComboBoxItem>Mindless Physics</ComboBoxItem>
+                        <ComboBoxItem>None</ComboBoxItem>
+                        <ComboBoxItem>Novodex</ComboBoxItem>
+                        <ComboBoxItem>Ogre</ComboBoxItem>
+                        <ComboBoxItem>Open Dynamics Engine</ComboBoxItem>
+                        <ComboBoxItem>PhysX</ComboBoxItem>
+                        <ComboBoxItem>R.E.A.L.</ComboBoxItem>
+                        <ComboBoxItem>Renderware</ComboBoxItem>
+                        <ComboBoxItem>Tokamak</ComboBoxItem>
+                        <ComboBoxItem>Torque</ComboBoxItem>
+                        <ComboBoxItem>Box2D</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Sound"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="SoundComboBox"
+                        Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10">
+                        <ComboBoxItem IsSelected="True">Audio Server3</ComboBoxItem>
+                        <ComboBoxItem>Bass</ComboBoxItem>
+                        <ComboBoxItem>Direct Show</ComboBoxItem>
+                        <ComboBoxItem>Direct Sound</ComboBoxItem>
+                        <ComboBoxItem>FMOD</ComboBoxItem>
+                        <ComboBoxItem>MCI</ComboBoxItem>
+                        <ComboBoxItem>ODD Audio</ComboBoxItem>
+                        <ComboBoxItem>ONYX</ComboBoxItem>
+                        <ComboBoxItem>OpenAL</ComboBoxItem>
+                        <ComboBoxItem>Wwise</ComboBoxItem>
+                        <ComboBoxItem>XACT</ComboBoxItem>
+                        <ComboBoxItem>XAudio2</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Input"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="InputComboBox" 
+                        Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10">
+                        <ComboBoxItem IsSelected="True">Gateware</ComboBoxItem>
+                        <ComboBoxItem>Arcade</ComboBoxItem>
+                        <ComboBoxItem>Direct Input</ComboBoxItem>
+                        <ComboBoxItem>Gamepad</ComboBoxItem>
+                        <ComboBoxItem>OpenGL</ComboBoxItem>
+                        <ComboBoxItem>POPCAP</ComboBoxItem>
+                        <ComboBoxItem>PS2 Controller</ComboBoxItem>
+                        <ComboBoxItem>SDL</ComboBoxItem>
+                        <ComboBoxItem>XBOX Controller</ComboBoxItem>
+                        <ComboBoxItem>XInput</ComboBoxItem>
+                        <ComboBoxItem>Windows</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <Border Margin="10"
+                        Background="Gray">
+                    <Button x:Name="AddGameButton"
+                        Content="Add Game"
+                        Click="AddGame_Button_Click" 
+                        MaxWidth="200"
+                        Margin="10"/>
+                </Border>
+            </StackPanel>
+        </Border>
 
-    <!--<Label Grid.Row="6"
+        <!--<Label Grid.Row="6"
            Grid.Column="6"
            Content="Logo Filepath"
            VerticalAlignment="Center"
@@ -152,39 +405,5 @@
               Width="500"
               Click="LogoFileBrowse_Button_Click" />
     </StackPanel>-->
-
-
-    
-    <Label Grid.Row="6"
-           Grid.Column="6"
-           Content="Short Blurb"
-           VerticalAlignment="Center"
-           HorizontalAlignment="Left"/>
-
-    <StackPanel  Grid.Row="6"
-                 Grid.Column="7"
-                 VerticalAlignment="Center"
-                 Margin="0, 10, 0, 0">
-      <TextBox   x:Name="BlurbTextBlock"
-                 Background="White"
-                 HorizontalAlignment="left"
-                 MinWidth="500" 
-                 MinHeight="100"/>
-    </StackPanel>
-
-    <Button    x:Name="AddGameButton"
-               Grid.Row="11"
-               Grid.Column="7"
-               Content="Add Game"
-               Click="AddGame_Button_Click" 
-               MaxWidth="200"
-               Margin="0, 10, 0, 0"/>
-
-    <Button    Grid.Row="11"
-               Grid.Column="1"
-               Content="Remove Game"
-               Click="RemoveGame_Button_Click"
-               MaxWidth="200"
-               Margin="0, 10, 0, 0" />
-  </Grid>
+    </Grid>
 </Window>
