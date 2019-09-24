@@ -26,6 +26,8 @@ namespace ALAdmin
     {
         private static ObservableCollection<Game> GameList = new ObservableCollection<Game>();
 
+        private ObservableCollection<TeamMember> TeamMemberList = new ObservableCollection<TeamMember>();
+
         private string txtPath = @"C: \Users\cmarks\Desktop\SingleGame.txt";
 
         public MainWindow()
@@ -42,6 +44,8 @@ namespace ALAdmin
             }
 
             GamesListBox.ItemsSource = GameList;
+
+            TMListView.ItemsSource = TeamMemberList;
         }
 
         private void AddGame_Button_Click(object sender, RoutedEventArgs e)
@@ -64,6 +68,15 @@ namespace ALAdmin
             //}
             else
             {
+                string teamMembers = "";
+                foreach(TeamMember tm in TeamMemberList)
+                {
+                    teamMembers += tm.Name;
+                    teamMembers += ",";
+                    teamMembers += tm.Email;
+                    teamMembers += ";";
+                }
+
                 Game g = new Game
                 {
                     Name = NameTextBox.Text,
@@ -80,7 +93,8 @@ namespace ALAdmin
                     Competition = CompetitionComboBox.Text,
                     Physics = PhysicsComboBox.Text,
                     Sound = SoundComboBox.Text,
-                    Input = InputComboBox.Text
+                    Input = InputComboBox.Text,
+                    TeamMembers = teamMembers
                 };
 
                 GameList.Add(g);
@@ -92,6 +106,8 @@ namespace ALAdmin
                 VideoTextBlock.Text = string.Empty;
                 //LogoTextBlock.Text = string.Empty;
                 BlurbTextBlock.Clear();
+                TeamMemberList.Clear();
+                TMListView.ItemsSource = null;
 
                 SaveList();
             }
@@ -116,6 +132,7 @@ namespace ALAdmin
                 streamWriter.WriteLine(g.VideoPath);
                 //streamWriter.WriteLine(g.LogoPath);
                 streamWriter.WriteLine(g.Blurb);
+                streamWriter.WriteLine(g.Engine);
                 streamWriter.WriteLine(g.Genre);
                 streamWriter.WriteLine(g.Setting);
                 streamWriter.WriteLine(g.Rendering);
@@ -123,6 +140,7 @@ namespace ALAdmin
                 streamWriter.WriteLine(g.Physics);
                 streamWriter.WriteLine(g.Sound);
                 streamWriter.WriteLine(g.Input);
+                streamWriter.WriteLine(g.TeamMembers);
             }
             streamWriter.Close();
         }
@@ -143,6 +161,7 @@ namespace ALAdmin
                 g.VideoPath = streamReader.ReadLine();
                 //g.LogoPath = streamReader.ReadLine();
                 g.Blurb = streamReader.ReadLine();
+                g.Engine = streamReader.ReadLine();
                 g.Genre = streamReader.ReadLine();
                 g.Setting = streamReader.ReadLine();
                 g.Rendering = streamReader.ReadLine();
@@ -150,6 +169,7 @@ namespace ALAdmin
                 g.Physics = streamReader.ReadLine();
                 g.Sound = streamReader.ReadLine();
                 g.Input = streamReader.ReadLine();
+                g.TeamMembers = streamReader.ReadLine();
 
                 GameList.Add(g);
             }
@@ -171,6 +191,18 @@ namespace ALAdmin
             if (ofd.ShowDialog() == true)
                 VideoTextBlock.Text = ofd.FileName;
         }
+
+        private void AddMember_Button_Click(object sender, RoutedEventArgs e)
+        {
+            TeamMemberList.Add(new TeamMember() { Name = TMNameTextBox.Text, Email = TMEmailTextBox.Text });
+
+        }
+
+        private void RemoveMember_Button_Click(object sender, RoutedEventArgs e)
+        {
+            TeamMemberList.Remove((TeamMember)TMListView.SelectedItem);
+        }
+
 
         //private void LogoFileBrowse_Button_Click(object sender, RoutedEventArgs e)
         //{

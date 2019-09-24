@@ -25,6 +25,5 @@ C:\Users\cmarks\Documents\Repos\ArcadeAdmin\ALAdmin\obj\Debug\MainWindow.baml
 C:\Users\cmarks\Documents\Repos\ArcadeAdmin\ALAdmin\obj\Debug\ALAdmin.g.resources
 C:\Users\cmarks\Documents\Repos\ArcadeAdmin\ALAdmin\obj\Debug\ALAdmin.Properties.Resources.resources
 C:\Users\cmarks\Documents\Repos\ArcadeAdmin\ALAdmin\obj\Debug\ALAdmin.csproj.GenerateResource.cache
-C:\Users\cmarks\Documents\Repos\ArcadeAdmin\ALAdmin\obj\Debug\ALAdmin.csproj.CoreCompileInputs.cache
 C:\Users\cmarks\Documents\Repos\ArcadeAdmin\ALAdmin\obj\Debug\ALAdmin.exe
 C:\Users\cmarks\Documents\Repos\ArcadeAdmin\ALAdmin\obj\Debug\ALAdmin.pdb

@@ -9,7 +9,8 @@
         Height="1080"
         Width="1920"
         WindowState="Maximized"
-        FontSize="22">
+        FontSize="22"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     
     <Grid Background="LightGray">
@@ -372,6 +373,38 @@
                         <ComboBoxItem>Windows</ComboBoxItem>
                     </ComboBox>
                 </DockPanel>
+
+                <StackPanel Background="Gray"
+                            Margin="10" Orientation="Vertical">
+                    <DockPanel>
+                        <Label Content="Team Member"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                        <TextBox x:Name="TMNameTextBox" Width="325" HorizontalAlignment="Right"
+                                 Margin="10"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Email"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                        <TextBox x:Name="TMEmailTextBox"  Width="325" HorizontalAlignment="Right"
+                                 Margin="10"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Button Content="Add Member" MinWidth="200" Height="31" 
+                                Margin="10" HorizontalAlignment="Center" Click="AddMember_Button_Click"/>
+                        <Button Content="Remove Member" MinWidth="100" 
+                                MaxWidth="200" Height="31" Click="RemoveMember_Button_Click"/>
+                    </DockPanel>
+                    <ListView x:Name="TMListView" Height="365" Margin="10" ItemsSource="{Binding TeamMemberList}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Name" Width="255" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Email" Width="255" DisplayMemberBinding="{Binding Email}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
                 <Border Margin="10"
                         Background="Gray">
                     <Button x:Name="AddGameButton"
