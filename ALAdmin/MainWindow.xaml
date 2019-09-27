@@ -373,7 +373,19 @@
                         <ComboBoxItem>Windows</ComboBoxItem>
                     </ComboBox>
                 </DockPanel>
-
+                <DockPanel Background="Gray"
+                           Margin="10">
+                    <Label Content="Players"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="PlayersComboBox" 
+                        Width="325"
+                              HorizontalAlignment="Right"
+                              Margin="10">
+                        <ComboBoxItem IsSelected="True">SinglePlayer</ComboBoxItem>
+                        <ComboBoxItem>MultiPlayer</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
                 <StackPanel Background="Gray"
                             Margin="10" Orientation="Vertical">
                     <DockPanel>
@@ -405,14 +417,19 @@
                         </ListView.View>
                     </ListView>
                 </StackPanel>
-                <Border Margin="10"
-                        Background="Gray">
+
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="2">
+            <StackPanel Background="DarkGray" Width="450">
+                <Border Background="Gray" Margin="10">
                     <Button x:Name="AddGameButton"
                         Content="Add Game"
                         Click="AddGame_Button_Click" 
                         MaxWidth="200"
                         Margin="10"/>
                 </Border>
+                
             </StackPanel>
         </Border>
 

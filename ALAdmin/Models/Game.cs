@@ -23,6 +23,7 @@ namespace ALAdmin.Models
         public string Physics { get; set; }
         public string Sound { get; set; }
         public string Input { get; set; }
+        public string Players { get; set; }
         public string TeamMembers { get; set; }
     }
 }

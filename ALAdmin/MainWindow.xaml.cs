@@ -69,12 +69,21 @@ namespace ALAdmin
             else
             {
                 string teamMembers = "";
-                foreach(TeamMember tm in TeamMemberList)
+                for(int i = 0; i < TeamMemberList.Count; i++)
                 {
-                    teamMembers += tm.Name;
-                    teamMembers += ",";
-                    teamMembers += tm.Email;
-                    teamMembers += ";";
+                    if(i != TeamMemberList.Count - 1)
+                    {
+                        teamMembers += TeamMemberList[i].Name;
+                        teamMembers += ",";
+                        teamMembers += TeamMemberList[i].Email;
+                        teamMembers += ";";
+                    }
+                    else
+                    {
+                        teamMembers += TeamMemberList[i].Name;
+                        teamMembers += ",";
+                        teamMembers += TeamMemberList[i].Email;
+                    }
                 }
 
                 Game g = new Game
@@ -94,6 +103,7 @@ namespace ALAdmin
                     Physics = PhysicsComboBox.Text,
                     Sound = SoundComboBox.Text,
                     Input = InputComboBox.Text,
+                    Players = PlayersComboBox.Text,
                     TeamMembers = teamMembers
                 };
 
@@ -107,6 +117,8 @@ namespace ALAdmin
                 //LogoTextBlock.Text = string.Empty;
                 BlurbTextBlock.Clear();
                 TeamMemberList.Clear();
+                TMNameTextBox.Clear();
+                TMEmailTextBox.Clear();
                 TMListView.ItemsSource = null;
 
                 SaveList();
@@ -140,6 +152,7 @@ namespace ALAdmin
                 streamWriter.WriteLine(g.Physics);
                 streamWriter.WriteLine(g.Sound);
                 streamWriter.WriteLine(g.Input);
+                streamWriter.WriteLine(g.Players);
                 streamWriter.WriteLine(g.TeamMembers);
             }
             streamWriter.Close();
@@ -169,6 +182,7 @@ namespace ALAdmin
                 g.Physics = streamReader.ReadLine();
                 g.Sound = streamReader.ReadLine();
                 g.Input = streamReader.ReadLine();
+                g.Players = streamReader.ReadLine();
                 g.TeamMembers = streamReader.ReadLine();
 
                 GameList.Add(g);
