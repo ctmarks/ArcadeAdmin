@@ -117,8 +117,6 @@ namespace ALAdmin
                 //LogoTextBlock.Text = string.Empty;
                 BlurbTextBlock.Clear();
                 TeamMemberList.Clear();
-                TMNameTextBox.Clear();
-                TMEmailTextBox.Clear();
                 TMListView.ItemsSource = null;
 
                 SaveList();
@@ -209,7 +207,8 @@ namespace ALAdmin
         private void AddMember_Button_Click(object sender, RoutedEventArgs e)
         {
             TeamMemberList.Add(new TeamMember() { Name = TMNameTextBox.Text, Email = TMEmailTextBox.Text });
-
+            TMNameTextBox.Clear();
+            TMEmailTextBox.Clear();
         }
 
         private void RemoveMember_Button_Click(object sender, RoutedEventArgs e)
