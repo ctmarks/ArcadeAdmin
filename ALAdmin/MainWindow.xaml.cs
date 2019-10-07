@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace ALAdmin
 {
@@ -28,11 +29,14 @@ namespace ALAdmin
 
         private ObservableCollection<TeamMember> TeamMemberList = new ObservableCollection<TeamMember>();
 
-        private string txtPath = @"C: \Users\cmarks\Desktop\SingleGame.txt";
+        private string txtPath;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            string folder = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            txtPath = folder + @"/GameList.txt";
 
             if (!File.Exists(txtPath))
             {
